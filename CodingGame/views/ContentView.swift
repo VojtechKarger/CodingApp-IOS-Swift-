@@ -18,13 +18,8 @@ struct ContentView: View {
                     Spacer()
                     Button {
                         UIApplication.shared.endEditing()
-                        Task{
-                            do{
-                                try await compile()
-                            }catch{
-                                print(error)
-                            }
-                        }
+                        viewModel.runCompileing()
+                        presented.toggle()
                     } label: {
                         Text("Run")
                     }.padding([.top,.trailing])
@@ -43,27 +38,7 @@ struct ContentView: View {
     }
     
     
-    func compile() async throws {
-        
-        var urlRequest = URLRequest(url: URL(string: "https://swiftfiddle.com/runner/5.4.3/run")!)
-        urlRequest.httpMethod = "POST"
-        urlRequest.httpBody = try JSONEncoder().encode(Request(code: viewModel.text.replaceBadQuotes()))
-        urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
-        
-        print("running...")
-        
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
-        
-        let decoded = try JSONDecoder().decode(Response.self, from: data)
-        
-        print(decoded, "succesfull request")
-        if decoded.output != "" {
-            presented = true
-            DispatchQueue.main.async {
-                viewModel.output = decoded.output
-            }
-        }
-    }
+    
     
 }
 
