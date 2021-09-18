@@ -21,7 +21,7 @@ class CodingGameTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let str = "if you are clever and if aslkfjdaů ahoj if cus if"
+        let str = "if you are clever and ifaslkfjdaů ahoj if cus if"
         let ranges = str.foundRangesOfWord("if")
         print(ranges)
         XCTAssert(!ranges.isEmpty, "test succesfully failed")
@@ -32,7 +32,7 @@ class CodingGameTests: XCTestCase {
         measure {
             // Put the code you want to measure the time of here.
             let str = "if you are clever and if aslkfjdaů ahoj if cus if aůfkdaflk fadksjfasd fnds fds f dsf sd f  sdfsdfsdf sdfsfkjdsflasdkjfasd fsdakfjdnsakf sadfdskjfnsdkf sfdkjdfklaf adkjsfnksf  ajdsfaklsdf akdfjnaksjdfnka vfakjnfjka dfandfldaůfkjndaskf dsjfnlskaůnflkansdůf dsfkndkfnlaf if asodkfnůlsdknfsa adnflaksdnf asdlkfnalksdnfif you are clever and if aslkfjdaů ahoj if cus if aůfkdaflk fadksjfasd fnds fds f dsf sd f  sdfsdfsdf sdfsfkjdsflasdkjfasd fsdakfjdnsakf sadfdskjfnsdkf sfdkjdfklaf adkjsfnksf  ajdsfaklsdf akdfjnaksjdfnka vfakjnfjka dfandfldaůfkjndaskf dsjfnlskaůnflkansdůf dsfkndkfnlaf if asodkfnůlsdknfsa adnflaksdnf asdlkfnalksdnfif you are clever and if aslkfjdaů ahoj if cus if aůfkdaflk fadksjfasd fnds fds f dsf sd f  sdfsdfsdf sdfsfkjdsflasdkjfasd fsdakfjdnsakf sadfdskjfnsdkf sfdkjdfklaf adkjsfnksf  ajdsfaklsdf akdfjnaksjdfnka vfakjnfjka dfandfldaůfkjndaskf dsjfnlskaůnflkansdůf dsfkndkfnlaf if asodkfnůlsdknfsa adnflaksdnf asdlkfnalksdnfif you are clever and if aslkfjdaů ahoj if cus if aůfkdaflk fadksjfasd fnds fds f dsf sd f  sdfsdfsdf sdfsfkjdsflasdkjfasd fsdakfjdnsakf sadfdskjfnsdkf sfdkjdfklaf adkjsfnksf  ajdsfaklsdf akdfjnaksjdfnka vfakjnfjka dfandfldaůfkjndaskf dsjfnlskaůnflkansdůf dsfkndkfnlaf if asodkfnůlsdknfsa adnflaksdnf asdlkfnalksdnfif you are clever and if aslkfjdaů ahoj if cus if aůfkdaflk fadksjfasd fnds fds f dsf sd f  sdfsdfsdf sdfsfkjdsflasdkjfasd fsdakfjdnsakf sadfdskjfnsdkf sfdkjdfklaf adkjsfnksf  ajdsfaklsdf akdfjnaksjdfnka vfakjnfjka dfandfldaůfkjndaskf dsjfnlskaůnflkansdůf dsfkndkfnlaf if asodkfnůlsdknfsa adnflaksdnf asdlkfnalksdnfif you are clever and if aslkfjdaů ahoj if cus if aůfkdaflk fadksjfasd fnds fds f dsf sd f  sdfsdfsdf sdfsfkjdsflasdkjfasd fsdakfjdnsakf sadfdskjfnsdkf sfdkjdfklaf adkjsfnksf  ajdsfaklsdf akdfjnaksjdfnka vfakjnfjka dfandfldaůfkjndaskf dsjfnlskaůnflkansdůf dsfkndkfnlaf if asodkfnůlsdknfsa adnflaksdnf asdlkfnalksdnfif you are clever and if aslkfjdaů ahoj if cus if aůfkdaflk fadksjfasd fnds fds f dsf sd f  sdfsdfsdf sdfsfkjdsflasdkjfasd fsdakfjdnsakf sadfdskjfnsdkf sfdkjdfklaf adkjsfnksf  ajdsfaklsdf akdfjnaksjdfnka vfakjnfjka dfandfldaůfkjndaskf dsjfnlskaůnflkansdůf dsfkndkfnlaf if asodkfnůlsdknfsa adnflaksdnf asdlkfnalksdnf"
-            str.colorTextInRanges(attributes: ["if":.red,"else":.green,"ahoj":.systemBlue])
+            print(str.colorTextInRanges(attributes: ["if":.red,"else":.green,"ahoj":.systemBlue]))
         }
     }
 

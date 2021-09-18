@@ -5,7 +5,7 @@
 //  Created by vojta on 18.09.2021.
 //
 
-import Foundation
+import UIKit
 
 struct Response: Codable {
     let errors, version, output: String
@@ -16,3 +16,6 @@ struct Request: Encodable {
     let code: String
 }
 
+struct Attributes {
+    static let attributes: [String : UIColor] = ["print": .systemBlue,"{": .systemMint,"}": .systemMint,"if": .systemGreen,"else": .systemGreen,"import": .systemPink]
+}

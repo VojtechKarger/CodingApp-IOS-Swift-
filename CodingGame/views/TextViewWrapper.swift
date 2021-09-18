@@ -14,7 +14,7 @@ fileprivate struct UITextViewWrapper: UIViewRepresentable {
     @Binding var text: String
     @Binding var calculatedHeight: CGFloat
     var onDone: (() -> Void)?
-
+    
     func makeUIView(context: UIViewRepresentableContext<UITextViewWrapper>) -> UITextView {
         let textField = UITextView()
         textField.delegate = context.coordinator
@@ -24,8 +24,10 @@ fileprivate struct UITextViewWrapper: UIViewRepresentable {
         textField.isSelectable = true
         textField.isUserInteractionEnabled = true
         textField.isScrollEnabled = false
+        textField.autocapitalizationType = .none
         textField.backgroundColor = UIColor.clear
         
+        textField.attributedText = self.text.colorTextInRanges(attributes: Attributes.attributes)
 
         textField.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         return textField
@@ -68,8 +70,7 @@ fileprivate struct UITextViewWrapper: UIViewRepresentable {
         func textViewDidChange(_ uiView: UITextView) {
             text.wrappedValue = uiView.text
             DispatchQueue.global(qos: .background).async {
-                let attributes: [String : UIColor] = ["print": .systemBlue,"(": .systemMint,")": .systemMint,"if": .systemGreen,"else": .systemGreen,"import": .systemPink]
-                let txt = self.text.wrappedValue.colorTextInRanges(attributes: attributes)
+                let txt = self.text.wrappedValue.colorTextInRanges(attributes: Attributes.attributes)
                 DispatchQueue.main.async {
                     uiView.attributedText = txt
                 }

@@ -30,7 +30,10 @@ extension String {
         
         let attributedString = NSMutableAttributedString(
             attributedString: NSAttributedString(string: self,
-                                                 attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)]
+                                                 attributes: [
+                                                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18),
+                                                    NSAttributedString.Key.foregroundColor: UIColor(Color.primary)
+                                                 ]
 ))
         for (word,color) in attributes {
             for r in self.foundRangesOfWord(word) {
@@ -58,13 +61,16 @@ extension String {
             }else{
                 isInWord = false
                 if currentWord == word {
-                    array.append(NSRange(location: i - word.count, length: word.count))
+                    array.append(NSRange(location: i - currentWord.count, length: currentWord.count))
                 }
                 currentWord = ""
             }
             if isInWord {
                 currentWord += String(ch)
-                print(currentWord)
+                if currentWord == word {
+                    array.append(NSRange(location: i - currentWord.count + 1, length: currentWord.count))
+                    currentWord = ""
+                }
             }
             i += 1
         }

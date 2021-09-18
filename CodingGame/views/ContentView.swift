@@ -9,34 +9,39 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var viewModel = ViewModel()
-    @State var presented = false
+
     var body: some View {
         ZStack{
-            Color.white
+            Color.antiprimary.ignoresSafeArea()
             VStack{
                 HStack{
+                    Text("Code!")
+                        .font(.title)
+                        .padding([.top,.leading])
                     Spacer()
-                    Button {
-                        UIApplication.shared.endEditing()
-                        viewModel.runCompileing()
-                        presented.toggle()
-                    } label: {
-                        Text("Run")
-                    }.padding([.top,.trailing])
+                    Button(action: run, label: { Text("run") })
+                        .padding(.trailing)
+                        .padding(.top,7)
                 }
+                DisclosureGroup("view output") {
+                    Text(viewModel.output ?? "run your code to see the output")
+                        .frame(maxWidth: .infinity, minHeight: 100)
+                }
+                .padding()
                 ScrollView{
                     MultilineTextField("ahoj", text: $viewModel.text) {
                         print("commit")
                     }
+                    .accentColor(.primary.opacity(0.7))
                 }
             }
-            .sheet(isPresented: $presented, onDismiss: {
-                viewModel.output = nil
-            }, content: { Text(viewModel.output ?? "noOutput") })
-            
+            .accentColor(.primary)
         }
     }
-    
+    func run() {
+        UIApplication.shared.endEditing()
+        viewModel.runCompileing()
+    }
     
     
     

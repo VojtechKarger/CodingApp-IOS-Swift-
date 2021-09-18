@@ -10,13 +10,18 @@ import Foundation
 
 
 class ViewModel: ObservableObject {
-    @Published var text = " import Foundation \n\n"
+    @Published var text = " import Foundation \n\n print ( \"hello world\" ) "
     @Published var output: String? = nil
+    @Published var presented = false
+    
     
     func runCompileing() {
         Task{
             do{
                 try await compile()
+                DispatchQueue.main.async {
+                    self.presented.toggle()
+                }
             }catch{
                 print(error)
             }

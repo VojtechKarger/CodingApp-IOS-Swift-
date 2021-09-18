@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7901978D26F67111009D9960 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7901978C26F67111009D9960 /* Colors.swift */; };
 		7973A08326F5F295000619B1 /* CodingGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973A08226F5F295000619B1 /* CodingGameTests.swift */; };
 		7973A08A26F5F343000619B1 /* customViewsUIKIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973A08926F5F343000619B1 /* customViewsUIKIt.swift */; };
 		7973A08C26F61EA8000619B1 /* UIAplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973A08B26F61EA8000619B1 /* UIAplicationExtension.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7901978C26F67111009D9960 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7973A08026F5F295000619B1 /* CodingGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodingGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7973A08226F5F295000619B1 /* CodingGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingGameTests.swift; sourceTree = "<group>"; };
 		7973A08926F5F343000619B1 /* customViewsUIKIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customViewsUIKIt.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				797E15C526F3AACA004F15AE /* StringMarkingExtension.swift */,
+				7901978C26F67111009D9960 /* Colors.swift */,
 				7973A08B26F61EA8000619B1 /* UIAplicationExtension.swift */,
 				79D48EF926F5197D00E03B98 /* NotificationNamesExtension.swift */,
 			);
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7973A09026F64670000619B1 /* ViewModel.swift in Sources */,
+				7901978D26F67111009D9960 /* Colors.swift in Sources */,
 				7973A08E26F63DB3000619B1 /* Model.swift in Sources */,
 				797E15BA26F3A6B4004F15AE /* ContentView.swift in Sources */,
 				7973A08A26F5F343000619B1 /* customViewsUIKIt.swift in Sources */,
