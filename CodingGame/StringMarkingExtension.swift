@@ -8,10 +8,6 @@
 import UIKit
 import SwiftUI
 
-struct ColoringStruct {
-    let string: String
-    let color: UIColor
-}
 
 extension String {
 
@@ -29,17 +25,59 @@ extension String {
         }
         return string
     }
-}
-
-
-
-struct UIKLabel: UIViewRepresentable {
-
-    typealias TheUIView = UILabel
-    var configuration = { (view: TheUIView) in }
-
-    func makeUIView(context: UIViewRepresentableContext<Self>) -> TheUIView { TheUIView() }
-    func updateUIView(_ uiView: TheUIView, context: UIViewRepresentableContext<Self>) {
-        configuration(uiView)
+    
+    func colorTextInRanges(attributes: [String: UIColor]) -> NSMutableAttributedString {
+        
+        let attributedString = NSMutableAttributedString(
+            attributedString: NSAttributedString(string: self,
+                                                 attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)]
+))
+        for (word,color) in attributes {
+            for r in self.foundRangesOfWord(word) {
+                attributedString.addAttributes([NSAttributedString.Key.foregroundColor: color], range: r)
+            }
+        }
+        return attributedString
     }
+    func replaceBadQuotes() -> String {
+        return String(self.map {
+            $0 == "”" ? "\"" : $0 == "“" ? "\"" : $0
+        })
+    }
+    
+    
+    func foundRangesOfWord(_ word: String) -> [NSRange] {
+        var array = Array<NSRange>()
+        var i = 0
+        var isInWord = false
+        var currentWord: String = ""
+        
+        for ch in self {
+            if ch != " " {
+                isInWord = true
+            }else{
+                isInWord = false
+                if currentWord == word {
+                    array.append(NSRange(location: i - word.count, length: word.count))
+                }
+                currentWord = ""
+            }
+            if isInWord {
+                currentWord += String(ch)
+                print(currentWord)
+            }
+            i += 1
+        }
+        
+        
+        return array
+    }
+    
+    
+    
 }
+
+
+
+
+
