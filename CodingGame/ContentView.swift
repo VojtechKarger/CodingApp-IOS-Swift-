@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var text = String()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack{
+            Color.green
+            TextView().frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                
+            
+        }
     }
 }
 
